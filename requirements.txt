@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+psycopg2-binary
+python-dotenv
+langchain
+langchain-community
+langchain-core
+langchain-google-genai
+pymupdf
+flask-cors
+sqlalchemy
