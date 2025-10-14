@@ -10,7 +10,7 @@ import os
 from dotenv import load_dotenv
 from models.summaries import Summary
 import json
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 load_dotenv()
 
@@ -19,6 +19,7 @@ gen_bp = Blueprint("generate", __name__)
 CORS(gen_bp, origins=["https://mystudysaathi.vercel.app"])
 
 @gen_bp.route("/generate-summary", methods=["POST"])
+@cross_origin()
 def generate_summary():
     json_file = request.form.get("json")
     if not "file" in request.files:
@@ -51,6 +52,7 @@ def generate_summary():
     return jsonify({"summary": summary}), 200
 
 @gen_bp.route("/generate-quiz", methods=["POST"])
+@cross_origin()
 def generate_quiz():
     if "file" not in request.files:
         return jsonify({"error": "Please provide a PDF file"}), 400
@@ -112,6 +114,7 @@ def generate_quiz():
 
 
 @gen_bp.route("/submit-quiz", methods=["POST"])
+@cross_origin()
 def submit_quiz():
     try:
         data = request.get_json()  

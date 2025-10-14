@@ -2,13 +2,14 @@ from flask import Blueprint, request, jsonify
 from models import User
 from app import db
 from datetime import datetime
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 auth_bp = Blueprint("auth_bp", __name__)
 
 CORS(auth_bp, origins=["https://mystudysaathi.vercel.app"])
 
 @auth_bp.route("/login", methods=["POST"])
+@cross_origin()
 def login():
     data = request.get_json()
     email = data.get("email")
