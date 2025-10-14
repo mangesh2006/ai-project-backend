@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 load_dotenv()
 app = Flask(__name__)
@@ -15,6 +16,14 @@ def create_app():
     
     db.init_app(app)
     migrate.init_app(app, db)
+
+    CORS(
+        app,
+        origins=["https://mystudysaathi.vercel.app"],
+        supports_credentials=True,
+        allow_headers=["Content-Type", "Authorization"],
+        methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"]
+    )   
 
     from models.user import User
     from models.summaries import Summary
