@@ -10,3 +10,4 @@ langchain-google-genai
 pymupdf
 flask-cors
 sqlalchemy
+gunicorn
