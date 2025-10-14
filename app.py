@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = create_app()
 CORS(
     app,
-    origins=["http://localhost:3000"],
+    origins=["https://mystudysaathi.vercel.app/"],
     supports_credentials=True,
     allow_headers=["Content-Type", "Authorization"],
     methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"]
