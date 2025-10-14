@@ -19,9 +19,7 @@ def create_app():
     from models.user import User
     from models.summaries import Summary
 
-    from routes.auth import auth_bp
-    from routes.generate import gen_bp
-    from routes.getdata import get_bp
+    from routes import auth_bp, gen_bp, get_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(gen_bp)
