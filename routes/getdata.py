@@ -1,8 +1,11 @@
 from flask import Blueprint, request, jsonify
 from models.summaries import Summary
 from urllib.parse import unquote
+from flask_cors import CORS
 
 get_bp = Blueprint("get-bp", __name__)
+
+CORS(get_bp, origins=["https://mystudysaathi.vercel.app"])
 
 @get_bp.route("/get-summaries", methods=["POST"])
 def getdata():

@@ -10,10 +10,13 @@ import os
 from dotenv import load_dotenv
 from models.summaries import Summary
 import json
+from flask_cors import CORS
 
 load_dotenv()
 
 gen_bp = Blueprint("generate", __name__)
+
+CORS(gen_bp, origins=["https://mystudysaathi.vercel.app"])
 
 @gen_bp.route("/generate-summary", methods=["POST"])
 def generate_summary():
