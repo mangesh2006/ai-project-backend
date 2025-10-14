@@ -21,8 +21,10 @@ def create_app():
 
     from routes.auth import auth_bp
     from routes.generate import gen_bp
+    from routes.getdata import get_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(gen_bp)
+    app.register_blueprint(get_bp)
 
     return app
