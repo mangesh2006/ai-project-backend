@@ -34,4 +34,9 @@ def create_app():
     app.register_blueprint(gen_bp)
     app.register_blueprint(get_bp)
 
+    
+    @app.route("/", methods=["GET"])
+    def hello():
+        return "Hello"
+
     return app
